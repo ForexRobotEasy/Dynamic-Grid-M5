@@ -1,0 +1,103 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                   Dynamic Grid M5 |
+//|                                      Developed by Forex Robot Easy Team |
+//|                                               Website: forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+// Global Variables
+double LotSize = 0.01; // default lot size
+int GridLevels = 5; // default number of grid levels
+
+//+------------------------------------------------------------------+
+//|                            Expert initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Set initial parameters
+   SetVolume(LotSize); // set initial lot size
+   CreateGrid(GridLevels); // create initial grid levels
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                      Expert tick function                                        |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Check for price movements
+   double currentPrice = MarketInfo(Symbol(), MODE_BID);
+   double previousPrice = iCustom(NULL, 0, 'Dynamic Grid M5', 1, 0); // retrieve previous price
+
+   if(currentPrice != previousPrice)
+   {
+      // Adjust grid levels based on price movements
+      AdjustGridLevels(currentPrice);
+   }
+
+   // Place trades based on grid levels
+   PlaceTrades();
+}
+
+//+------------------------------------------------------------------+
+//|                     Function to adjust grid levels                              |
+//+------------------------------------------------------------------+
+void AdjustGridLevels(double currentPrice)
+{
+   // Adjust grid levels based on price movements
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|                        Function to place trades                                 |
+//+------------------------------------------------------------------+
+void PlaceTrades()
+{
+   // Place trades based on grid levels
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|                       Function to create grid levels                           |
+//+------------------------------------------------------------------+
+void CreateGrid(int levels)
+{
+   // Create grid levels
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|                         Function to set volume                                  |
+//+------------------------------------------------------------------+
+void SetVolume(double volume)
+{
+   // Set volume for trades
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|                   Function to support trading on various time frames |
+//+------------------------------------------------------------------+
+void SupportTimeFrames(string timeFrames)
+{
+   // Support trading on various time frames
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|            Function to enable trading on Forex majors and minors |
+//+------------------------------------------------------------------+
+void EnableForexTrading()
+{
+   // Enable trading on Forex majors and minors
+   // Implementation logic goes here
+}
+
+//+------------------------------------------------------------------+
+//|                       Expert deinitialization function                    |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Clean up and close any open trades
+   // Implementation logic goes here
+}
